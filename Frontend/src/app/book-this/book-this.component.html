@@ -1,0 +1,54 @@
+<p>
+  book-this works!
+</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-primary" style="background-color: rgba(250, 250, 250, 0.7);">
+      <div class="panel-heading text-center"><h3>Enter these details to book this boat.</h3></div>
+      <div class="panel-body">
+        <table class="table table-hover table-rounded bordered">
+          <form class="form" [formGroup]="bookThisForm" (ngSubmit)="submitBooking()">
+            <div class="text-center center-block">
+              <tr class="row">
+                <th class="text-center"><label> Your selected Boat id: </label></th>
+                <td><label> {{boatId}} </label></td>
+              </tr>
+              <tr class="row">
+                <th class="text-center"><label> Discount Applicable: </label></th>
+                <td><label> {{discount}} </label></td>
+              </tr>
+              <tr class="row">
+                <th class="text-center"><label> Your User Id: </label></th>
+                <span class="text-danger" *ngIf="bookThisForm.controls.userId.hasError('pattern') && bookThisForm.controls.startDate.dirty"> UserID must be 4 digits. </span>
+                <td class="col-md-6 col-md-offset-2"><input type="text" formControlName="userId"></td>
+              </tr>
+              <tr class="row">
+                <th class="text-center"><label> Enter Booking Start Date: </label></th>
+                <span class="text-danger" *ngIf="bookThisForm.controls.startDate.hasError('currentDateCheck') && bookThisForm.controls.startDate.dirty"> Start date must be on or after the current date. </span>
+                <td><input type="date" data-date-format="YYYY-MM-DD" formControlName="startDate"></td>
+              </tr>
+              <tr class="row">
+                <th class="text-center"><label> Enter Booking End Date: </label></th>
+                <span class="text-danger" *ngIf="bookThisForm.controls.endDate.hasError('currentDateCheck') && bookThisForm.controls.endDate.dirty">
+                  End date must be on or after the current date. <br>
+                  {{eDateError}}
+                </span>
+                <td><input type="date" (click)="checkEndDate()" data-date-format="YYYY-MM-DD" formControlName="endDate"></td>
+                {{eDateError}}
+              </tr>
+              <tr class="row">
+                <th class="text-center"><label> Enter Mobile No: </label></th>
+                <span class="text-danger" *ngIf="bookThisForm.controls.mobileNo.hasError('pattern') && bookThisForm.controls.mobileNo.dirty"> Mobile number must be 10 digits </span>
+                <td><input type="text" (click)="checkEndDate()" formControlName="mobileNo"></td>
+              </tr>
+            </div>
+            <br>
+            <div class="col-md-12 text-center">
+              <button class="btn btn-primary" [disabled]="!bookThisForm.valid" type="submit">Book Now</button>
+            </div>
+          </form>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

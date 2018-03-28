@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-primary" style="background-color: rgba(250, 250, 250, 0.7);">
+      <div class="panel-heading text-center"><h3>Explore different types of available boats...</h3></div>
+      <div class="panel-body">
+
+        <table class="table table-hover bordered">
+
+          <th class="text-center"> <em> Boat Type </em> </th>
+          <th class="text-center"> <em> Boat Description </em> </th>
+
+          <tr class="text-center" *ngFor="let boat of boatsDetails">
+            <th>
+              <a [routerLink]="['/search',boat.boatType]"><button class="btn btn-primary btn-sm btn-default glyphicon glyphicon-thumbs-up">  {{boat.boatType}} </button></a>
+            </th>
+            <td class="font-weight-normal">
+              {{boat.description}}
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

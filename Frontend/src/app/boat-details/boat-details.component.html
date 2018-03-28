@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-primary" style="background-color: rgba(250, 250, 250, 0.7);">
+      <div class="panel-heading text-center"><h3>Explore different types of available boats...<br></h3></div>
+      <h4 class="text-center">Showing all the {{boatType}} type boats at "{{location}}"</h4>
+      <table class="table rounded">
+        <th class="text-center"> Description </th>
+        <th class="text-center"> Base Price </th>
+        <th class="text-center"> Allowed Days </th>
+        <th class="text-center"> Booking Starts on </th>
+        <th class="text-center"> Book this! </th>
+        <tr *ngFor="let details of listOfBoats">
+          <td class="text-center"> {{details.description}} </td>
+          <td class="text-center"> {{details.baseprice}} </td>
+          <td class="text-center"> {{details.allowedDays}} </td>
+          <td class="text-center"> {{details.bookingStart}} </td>
+          <td class="text-center"> <a [routerLink]="['/book-this',details.boatId]">Book This!</a> </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

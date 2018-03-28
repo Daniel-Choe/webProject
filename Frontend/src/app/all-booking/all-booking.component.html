@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-primary" style="background-color: rgba(250, 250, 250, 0.7);">
+      <div class="panel-heading text-center"><h3>Click on TxnId to View and Edit details</h3></div>
+      <div class="panel-body">
+        <table class="table table-hover table-rounded bordered">
+          <th class="text-center">Txn Id</th>
+          <th class="text-center">User Id</th>
+          <th class="text-center">Boat Id</th>
+          <th class="text-center">Total Fare</th>
+          <th class="text-center">Delete</th>
+
+          <tr *ngFor="let boat of allbooking ">
+            <td class="text-center">
+              <a [routerLink]="['/booking-details',boat.txnId]"> {{boat.txnId}} </a>
+            </td>
+
+            <td class="text-center">
+              {{boat.userId}}
+            </td>
+
+            <td class="text-center">
+              {{boat.boatId}}
+            </td>
+
+            <td class="text-center">
+              {{boat.totalCost}}
+            </td>
+            <td class="text-center">
+              <button type="button" (click)="deleteBooking(boat.txnId)" class="btn btn-danger">Delete Booking</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
