@@ -1,3 +1,5 @@
+// Business Layer functionality
+
 var datevalid = require('./valDate');
 var mobvalid = require('./valMob');
 var uservalid = require('./valUserId');

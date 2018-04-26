@@ -1,3 +1,5 @@
+// Data Access Layer functionality
+
 var database = require('../dataAccessLayer/Database');
 var bookingDetails = require('../Beans/bookingDetails');
 
@@ -46,7 +48,7 @@ bookingDAL.getBoatDetails = function (boatType, location) {
 }
 
 
-//Books boat with user entered data returns a txnId 
+//Books boat with user entered data returns a txnId
 bookingDAL.bookBoat = function (bookingDetails) {
     return database.then(function (conn) {
         promise = conn.query("INSERT INTO boatBookingDetails(userId, totalCost, endDate, startDate, mobileNo, boatId) VALUES(?,?,?,?,?,?)",
