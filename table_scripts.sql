@@ -1,3 +1,5 @@
+-- All queries for DB
+
 CREATE DATABASE GKBoats_DB;
 
 USE GKBoats_DB;
