@@ -1,5 +1,7 @@
 # webProject
 
+This project was created using a different type of MEAN stack (MySQL, Express, Angular 4, Node).
+
 To run this project, please follow these steps below:
 
 1) Open 2 terminals.
